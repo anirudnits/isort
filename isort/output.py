@@ -87,7 +87,7 @@ def sorted_imports(
         )
 
         if config.only_sections:
-            section_output =  []
+            section_output = []
             for section_import_type in parsed.original_order[section]:
                 if section_import_type == "from":
                     section_output.append(from_imports.pop(0))

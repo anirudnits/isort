@@ -5099,21 +5099,18 @@ def test_only_sections() -> None:
         "from collections import defaultdict\n"
     )
 
-    assert (
-        isort.code(test_input, only_sections=True)
-        == (
-            "import sys\n"
-            "from math import sqrt\n"
-            "import os\n"
-            "from collections import defaultdict\n"
-            "\n"
-            "from requests import post as POST, get as GET\n"
-            "import numpy as np\n"
-            "import pandas as pd\n"
-            "\n"
-            "from .url import *\n"
-            "import .views\n"
-        )
+    assert isort.code(test_input, only_sections=True) == (
+        "import sys\n"
+        "from math import sqrt\n"
+        "import os\n"
+        "from collections import defaultdict\n"
+        "\n"
+        "from requests import post as POST, get as GET\n"
+        "import numpy as np\n"
+        "import pandas as pd\n"
+        "\n"
+        "from .url import *\n"
+        "import .views\n"
     )
 
     # test to ensure that from_imports remain intact with only_sections

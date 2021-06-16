@@ -451,7 +451,7 @@ def file_contents(contents: str, config: Config = DEFAULT_CONFIG) -> ParsedConte
                         " Do you need to define a default section?"
                     )
                 root = imports[placed_module][type_of_import]  # type: ignore
-                original_order[placed_module].append(type_of_import)
+                original_order[placed_module].append(type_of_import)  # type: ignore
                 for import_name in just_imports:
                     associated_comment = nested_comments.get(import_name)
                     if associated_comment:
@@ -568,7 +568,7 @@ def file_contents(contents: str, config: Config = DEFAULT_CONFIG) -> ParsedConte
                         module, False
                     )
                     imports[placed_module][type_of_import][module] = straight_import  # type: ignore
-                    original_order[placed_module].append(type_of_import)
+                    original_order[placed_module].append(type_of_import)  # type: ignore
 
     change_count = len(out_lines) - original_line_count
 
