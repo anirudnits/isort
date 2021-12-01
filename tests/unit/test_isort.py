@@ -1726,6 +1726,37 @@ def test_custom_lines_before_import_section() -> None:
         "\n\nfrom a import b\nfrom c import d\n\nfoo = 'bar'\n"
     )
 
+    # test custom lines before import with multiple sections
+    test_input = """
+from a import b
+print("break")
+
+from c import d
+print("break")
+from e import f
+print("break")
+"""
+    assert (
+        isort.code(test_input, lines_before_imports=2)
+        == """
+
+
+from a import b
+
+print("break")
+
+
+from c import d
+
+print("break")
+
+
+from e import f
+
+print("break")
+"""
+    )
+
 
 def test_custom_lines_after_import_section() -> None:
     """Test the case where the number of lines to output after imports has been explicitly set."""
